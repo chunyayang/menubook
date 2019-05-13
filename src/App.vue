@@ -1,17 +1,16 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
+      <v-btn icon value="settings">
+        <v-icon large>person_outline</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
+      <v-toolbar-title class="headline">
         <span>Ordergo</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
+      <v-btn icon value="search" >
+        <v-icon large>search</v-icon>
       </v-btn>
     </v-toolbar>
 
