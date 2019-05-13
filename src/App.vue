@@ -18,6 +18,36 @@
     <v-content>
       <HelloWorld/>
     </v-content>
+
+    <v-bottom-nav
+      :active.sync="bottomNav"
+      :value="true"
+      app
+    >
+      <v-btn
+        color="amber darken-4"
+        flat
+        value="home"
+      >
+        <v-icon>home</v-icon>
+      </v-btn>
+
+      <v-btn
+        color="amber darken-4"
+        flat
+        value="favorites"
+      >
+        <v-icon>favorite</v-icon>
+      </v-btn>
+
+      <v-btn
+        color="amber darken-4"
+        flat
+        value="nearby"
+      >
+        <v-icon>shopping_cart</v-icon>
+      </v-btn>
+    </v-bottom-nav>
   </v-app>
 </template>
 
@@ -31,7 +61,7 @@ export default {
   },
   data () {
     return {
-      //
+      bottomNav: 'home'
     }
   }
 }
