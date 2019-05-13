@@ -1,16 +1,33 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-btn icon value="settings">
-        <v-icon large>person_outline</v-icon>
+    <v-toolbar
+      app
+      dense
+      flat
+      color="white"
+    >
+      <v-btn
+        icon
+        value="settings"
+      >
+        <v-icon medium>person_outline</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-toolbar-title class="headline">
-        <span>Ordergo</span>
-      </v-toolbar-title>
+      <h1>
+        <v-btn
+          flat
+          href="/"
+          class="headline text-none font-weight-medium"
+        >
+        Ordergo
+        </v-btn>
+      </h1>
       <v-spacer></v-spacer>
-      <v-btn icon value="search" >
-        <v-icon large>search</v-icon>
+      <v-btn
+        icon
+        value="search" 
+      >
+        <v-icon medium>search</v-icon>
       </v-btn>
     </v-toolbar>
 
@@ -21,6 +38,7 @@
     <v-bottom-nav
       :active.sync="bottomNav"
       :value="true"
+      class="elevation-0"
       app
     >
       <v-btn
@@ -28,7 +46,8 @@
         flat
         value="home"
       >
-        <v-icon>home</v-icon>
+        <span>Home</span>
+        <v-icon medium>home</v-icon>
       </v-btn>
 
       <v-btn
@@ -36,7 +55,8 @@
         flat
         value="favorites"
       >
-        <v-icon>favorite</v-icon>
+        <span>Favorites</span>
+        <v-icon medium>favorite_border</v-icon>
       </v-btn>
 
       <v-btn
@@ -44,7 +64,8 @@
         flat
         value="nearby"
       >
-        <v-icon>shopping_cart</v-icon>
+        <span>Orders</span>
+        <v-icon medium>shopping_cart</v-icon>
       </v-btn>
     </v-bottom-nav>
   </v-app>
