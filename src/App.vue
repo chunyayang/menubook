@@ -1,73 +1,56 @@
 <template>
   <v-app>
-    <v-toolbar
-      app
-      dense
-      flat
-      color="white"
-    >
-      <v-btn
-        icon
-        value="settings"
-      >
-        <v-icon medium>person_outline</v-icon>
+    <v-app-bar dense flat>
+      <v-btn value="settings" icon text>
+        <v-icon>mdi-account-outline</v-icon>
       </v-btn>
+
       <v-spacer></v-spacer>
-      <h1>
+
+      <v-toolbar-title>
         <v-btn
-          flat
+          depressed
+          text
           href="/"
           class="headline text-none font-weight-medium"
         >
         Ordergo
         </v-btn>
-      </h1>
+      </v-toolbar-title>
+
       <v-spacer></v-spacer>
-      <v-btn
-        icon
-        value="search" 
-      >
-        <v-icon medium>search</v-icon>
+
+      <v-btn value="search" icon text>
+        <v-icon>mdi-magnify</v-icon>
       </v-btn>
-    </v-toolbar>
+    </v-app-bar>
 
     <v-content>
       <HelloWorld/>
     </v-content>
 
-    <v-bottom-nav
-      :active.sync="bottomNav"
-      :value="true"
-      class="elevation-0"
+    <v-bottom-navigation
+      v-model="bottomNav"
       app
+      grow
+      color="amber darken-4"
+      class="elevation-0"
     >
-      <v-btn
-        color="amber darken-4"
-        flat
-        value="home"
-      >
+      <v-btn value="home">
         <span>Home</span>
-        <v-icon medium>home</v-icon>
+        <v-icon>home</v-icon>
       </v-btn>
 
-      <v-btn
-        color="amber darken-4"
-        flat
-        value="favorites"
-      >
+      <v-btn value="favorites">
         <span>Favorites</span>
-        <v-icon medium>favorite_border</v-icon>
+        <v-icon>favorite_border</v-icon>
       </v-btn>
 
-      <v-btn
-        color="amber darken-4"
-        flat
-        value="nearby"
-      >
+      <v-btn value="nearby">
         <span>Orders</span>
-        <v-icon medium>shopping_cart</v-icon>
+        <v-icon>shopping_cart</v-icon>
       </v-btn>
-    </v-bottom-nav>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
