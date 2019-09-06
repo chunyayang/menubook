@@ -13,13 +13,13 @@
       "hours": "6:00 - 13:00",
       "phone": "02 2929 0750",
       "desc": "早安美芝城以「好朋友家的廚房,媽媽放心的早餐店」一個溫馨的概念，貼近您的生活，堅持提供「熟悉、 舒適、健康、活力、安心」的食材與用餐環境，打造一個在鄰里之間維繫感情的早餐，近幾年早安美芝城一直升級進化，像是推廣台灣在地食材、店觀設計現代化，以及研發多樣的新鮮餐點，不外乎就是讓大眾對於「早餐店」的刻板印象改觀，進擊的品牌文化，將早安美芝城推向時尚的早食潮流卻又秉持著天天美好日日新鮮的創業初衷、一步步邁向世界的早食舞台。",
-      "img_url": "./images/1/store.jpg",
+      "img_url": "1/store.jpg",
       "rating": 4.1,
       "num_of_ratings": 65,
       "price_level": 1,
       "prep_time": 10,
       "distance": "3 min walk",
-      "dietary": [
+      "categories": [
         "vegetarian"
       ]
     },
@@ -36,13 +36,13 @@
       "hours": "6:00 - 13:00",
       "phone": "02 2929 5009",
       "desc": "QBurger提供的不僅僅是美食，我們提供的還有幸福與快樂，藉由我們的雙手，傳遞給每個身邊的人。",
-      "img_url": "./images/2/store.jpg",
+      "img_url": "2/store.jpg",
       "rating": 4.3,
       "num_of_ratings": 26,
       "price_level": 2,
       "prep_time": 15,
       "distance": "2 min walk",
-      "dietary": [
+      "categories": [
         "vegetarian",
         "gluten_free"
       ]

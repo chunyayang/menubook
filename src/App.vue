@@ -48,7 +48,7 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <StoreList/>
     </v-content>
 
     <v-footer
@@ -62,13 +62,13 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import StoreList from './components/StoreList'
 import { mdiBasket } from '@mdi/js'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    StoreList
   },
   data () {
     return {
