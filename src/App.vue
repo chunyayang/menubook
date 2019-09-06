@@ -1,9 +1,31 @@
 <template>
   <v-app>
-    <v-app-bar dense flat>
-      <v-btn value="settings" icon text>
-        <v-icon>mdi-account-outline</v-icon>
-      </v-btn>
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+      <v-list dense>
+        <v-list-item @click="">
+          <v-list-item-action>
+            <v-icon>home</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item @click="">
+          <v-list-item-action>
+            <v-icon>contact_mail</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Contact</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar app dense flat>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-spacer></v-spacer>
 
@@ -12,16 +34,16 @@
           depressed
           text
           href="/"
-          class="headline text-none font-weight-medium"
+          aria-label="Ordergo"
+          class="headline text-none font-weight-medium logo"
         >
-        Ordergo
         </v-btn>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn value="search" icon text>
-        <v-icon>mdi-magnify</v-icon>
+      <v-btn value="cart" icon text>
+        <v-icon>{{ svgBasket }}</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -29,33 +51,19 @@
       <HelloWorld/>
     </v-content>
 
-    <v-bottom-navigation
-      v-model="bottomNav"
+    <v-footer
+      color="blue-grey darken-3"
+      dark
       app
-      grow
-      color="amber darken-4"
-      class="elevation-0"
     >
-      <v-btn value="home">
-        <span>Home</span>
-        <v-icon>home</v-icon>
-      </v-btn>
-
-      <v-btn value="favorites">
-        <span>Favorites</span>
-        <v-icon>favorite_border</v-icon>
-      </v-btn>
-
-      <v-btn value="nearby">
-        <span>Orders</span>
-        <v-icon>shopping_cart</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
+      <span>&copy; 2019</span>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import { mdiBasket } from '@mdi/js'
 
 export default {
   name: 'App',
@@ -64,8 +72,16 @@ export default {
   },
   data () {
     return {
-      bottomNav: 'home'
+      drawer: null,
+      svgBasket: mdiBasket
     }
   }
 }
 </script>
+
+<style lang="scss">
+.logo {
+  background-image: url('./assets/logo.png');
+  width: 131px;
+}
+</style>
