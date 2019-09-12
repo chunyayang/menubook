@@ -5,20 +5,20 @@
       app
     >
       <v-list dense>
-        <v-list-item @click="">
-          <v-list-item-action>
+        <v-list-item href="/">
+          <v-list-item-icon>
             <v-icon>home</v-icon>
-          </v-list-item-action>
+          </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item @click="">
-          <v-list-item-action>
-            <v-icon>contact_mail</v-icon>
-          </v-list-item-action>
+        <v-list-item href="/about">
+          <v-list-item-icon>
+            <v-icon>{{ svgHelpBox }}</v-icon>
+          </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Contact</v-list-item-title>
+            <v-list-item-title>About</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -48,7 +48,7 @@
     </v-app-bar>
 
     <v-content>
-      <StoreList/>
+      <router-view/>
     </v-content>
 
     <v-footer
@@ -62,18 +62,15 @@
 </template>
 
 <script>
-import StoreList from './components/StoreList'
-import { mdiBasket } from '@mdi/js'
+import { mdiBasket, mdiHelpBox } from '@mdi/js'
 
 export default {
   name: 'App',
-  components: {
-    StoreList
-  },
   data () {
     return {
       drawer: null,
-      svgBasket: mdiBasket
+      svgBasket: mdiBasket,
+      svgHelpBox: mdiHelpBox
     }
   }
 }
