@@ -18,7 +18,7 @@
       >
         <v-card flat>
           <v-img
-            :src="require('../assets/' + store.img_url)"
+            :src="require('../assets/' + store.imageUrl)"
             aspect-ratio="2"
           ></v-img>
 
@@ -37,15 +37,15 @@
                 </v-icon>
               </span>
               <span class="pr-1 font-weight-medium">{{ store.rating }}</span>
-              <span>({{ store.num_of_ratings }})</span>
+              <span>({{ store.ratingCount }})</span>
               <span>&nbsp;&middot;&nbsp;</span>
-              <span v-html="formatCategories(store)"></span>
+              <span v-html="formatTags(store.tags)"></span>
             </div>
 
             <div>
               <span>{{ store.distance }}</span>
               <span>&nbsp;&middot;&nbsp;</span>
-              <span>{{ formatPriceLevel(store.price_level) }}</span>
+              <span>{{ formatPriceLevel(store.priceLevel) }}</span>
             </div>            
           </v-card-text>
 

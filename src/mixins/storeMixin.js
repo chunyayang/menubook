@@ -1,7 +1,7 @@
 export default {
   methods: {
-    formatCategories (store) {
-      return store.categories.join("&nbsp;&middot;&nbsp;")
+    formatTags (tags) {
+      return tags.join("&nbsp;&middot;&nbsp;")
     },
     formatPriceLevel (level) {
       if(level < 1 || level > 4) {
