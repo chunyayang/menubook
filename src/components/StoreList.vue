@@ -1,5 +1,5 @@
 <template> 
-  <div>
+  <div class="store-list">
     <v-alert
       v-if="errored"
       type="error"      
@@ -37,14 +37,19 @@
                 </v-icon>
               </span>
               <span class="pr-1 font-weight-medium">{{ store.rating }}</span>
-              <span>({{ store.ratingCount }})</span>
-              <span>&nbsp;&middot;&nbsp;</span>
-              <span v-html="formatTags(store.tags)"></span>
+              <span>({{ store.ratingCount }})&nbsp;</span>
+              <span
+                v-for="tag in store.tags"
+                :key="tag"
+                class="tag"
+              >
+                {{ tag }}
+              </span>
             </div>
 
             <div>
               <span>{{ store.distance }}</span>
-              <span>&nbsp;&middot;&nbsp;</span>
+              <span>&nbsp;·&nbsp;</span>
               <span>{{ formatPriceLevel(store.priceLevel) }}</span>
             </div>            
           </v-card-text>
@@ -83,8 +88,14 @@ export default {
 </script>
 
 <style lang="scss">
-.list {
+.store-list .list {
   list-style-type: none;
   padding: 0 !important;
+}
+.store-list .tag::after{
+  content: '·';
+}
+.store-list .tag:last-child::after {
+  content: '';
 }
 </style>>
