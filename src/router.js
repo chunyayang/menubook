@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import StoreList from './components/StoreList.vue'
+import Restaurants from './views/Restaurants.vue'
 
 Vue.use(Router)
 
@@ -10,12 +10,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: StoreList
+      redirect: '/restaurants'
+    },
+    {
+      path: '/restaurants',
+      component: Restaurants
     },
     {
       path: '/about',
-      name: 'about',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -23,8 +25,7 @@ export default new Router({
     },
     {
       path: '*',
-      name: 'home',
-      component: StoreList
+      component: Restaurants
     }
   ]
 })
