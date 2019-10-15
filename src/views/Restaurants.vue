@@ -47,6 +47,7 @@ export default {
     getStores()
       .then(response => {
         this.stores = response.data;
+        this.$root.$emit("scrollAfterUpdate");
       })
       .catch(error => {
         console.log(error);

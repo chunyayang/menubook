@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Restaurants from './views/Restaurants.vue'
 import Menu from './views/Menu.vue'
+import vm from './main';
 
 Vue.use(Router)
 
@@ -20,7 +21,7 @@ export default new Router({
     {
       path: '/menu/:id',
       component: Menu,
-      props: true 
+      props: true
     },
     {
       path: '/about',
@@ -33,5 +34,21 @@ export default new Router({
       path: '*',
       component: Restaurants
     }
-  ]
+  ],
+  scrollBehavior: (to, from, savedPosition) => {    
+    if (savedPosition) {
+      return new Promise((resolve) => {
+        vm.$root.$once('scrollAfterUpdate', () => {
+          resolve(savedPosition);
+        });
+      });
+    }
+    if (to.hash) {
+      return {
+        selector: to.hash
+      };
+    }
+
+    return false;
+  }
 })
