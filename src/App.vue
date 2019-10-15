@@ -24,7 +24,11 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app dense flat>
+    <v-app-bar
+      app
+      dense
+      flat
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-spacer></v-spacer>
@@ -36,19 +40,22 @@
           href="/"
           aria-label="Ordergo"
           class="headline text-none font-weight-medium logo"
-        >
-        </v-btn>
+        ></v-btn>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn value="cart" icon text>
+      <v-btn
+        value="cart"
+        icon
+        text
+      >
         <v-icon>{{ svgBasket }}</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-content>
-      <router-view/>
+      <router-view />
     </v-content>
 
     <v-footer
@@ -62,23 +69,23 @@
 </template>
 
 <script>
-import { mdiBasket, mdiHelpBox } from '@mdi/js'
+import { mdiBasket, mdiHelpBox } from "@mdi/js";
 
 export default {
-  name: 'App',
-  data () {
+  name: "App",
+  data() {
     return {
       drawer: null,
       svgBasket: mdiBasket,
       svgHelpBox: mdiHelpBox
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
 .logo {
-  background-image: url('./assets/logo.png');
+  background-image: url("./assets/logo.png");
   width: 131px;
 }
 </style>
