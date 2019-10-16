@@ -46,7 +46,7 @@ export default new Router({
     if (to.hash) {
       return {
         selector: to.hash,
-        offset: { y: 40 } // approximate value to avoid the app bar
+        offset: { y: 100 } // approximate value to avoid the app bar
       };
     }
 
