@@ -1,6 +1,6 @@
 <template>
   <div class="menu-list">
-    <v-tabs>
+    <v-tabs class="menu-list__tabs">
       <v-tab
         v-for="(category, index) in menuList"
         :key="category.name"
@@ -84,5 +84,11 @@ export default {
 }
 .menu-list li {
   padding: 0 16px;
+}
+.menu-list .menu-list__tabs {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 40px;
+  z-index: 1;
 }
 </style>
