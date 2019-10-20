@@ -56,9 +56,6 @@ export default {
       svgStar: mdiStar
     };
   },
-  watch: {
-    $route: "fetchData"
-  },
   created() {
     this.fetchData();
   },

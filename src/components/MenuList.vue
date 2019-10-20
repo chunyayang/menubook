@@ -54,9 +54,6 @@ export default {
       errored: false
     };
   },
-  watch: {
-    $route: "fetchData"
-  },
   created() {
     this.fetchData();
   },
