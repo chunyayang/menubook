@@ -20,6 +20,7 @@ export default new Router({
     },
     {
       path: '/menu/:id',
+      name: 'menu',
       component: Menu,
       props: true
     },

@@ -1,6 +1,6 @@
 <template>
   <v-card
-    :to="'/menu/' + id"
+    :to="{name: 'menu', params: {id: id}}"
     flat
     class="store-info"
   >
