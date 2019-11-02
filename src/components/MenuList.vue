@@ -3,6 +3,7 @@
     <v-tabs
       v-model="tabIndex"
       class="menu-list__tabs"
+      @change="onChangeTab($event)"
     >
       <v-tab
         v-for="category in categories"
@@ -49,6 +50,9 @@ export default {
           this.errored = true;
           this.loading = false;
         });
+    },
+    onChangeTab(index) {
+      this.$root.$emit("tabClick", index);
     }
   }
 };
