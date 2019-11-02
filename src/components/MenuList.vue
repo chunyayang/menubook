@@ -1,6 +1,7 @@
 <template>
   <div class="menu-list">
     <v-tabs
+      v-model="tabIndex"
       class="menu-list__tabs"
     >
       <v-tab
@@ -10,6 +11,7 @@
     </v-tabs>
 
     <MenuListCategories
+      v-model="tabIndex"
       :categories="categories"
     />
   </div>
@@ -27,6 +29,7 @@ export default {
   data() {
     return {
       loading: true,
+      tabIndex: 0,
       categories: null,
       errored: false
     };
