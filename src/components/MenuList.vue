@@ -54,7 +54,6 @@ export default {
   props: ["id"],
   data() {
     return {
-      loading: true,
       tabIndex: 0,
       categories: null,
       errored: false
@@ -68,12 +67,10 @@ export default {
       getStoreMenu(this.id)
         .then(response => {
           this.categories = response.data.categories;
-          this.loading = false;
         })
         .catch(error => {
           console.log(error);
           this.errored = true;
-          this.loading = false;
         });
     },
     onTabChange(index) {
