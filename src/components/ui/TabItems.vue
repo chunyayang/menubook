@@ -42,7 +42,7 @@ export default {
     };
   },
   mounted() {
-    this.$root.$on("tabScroll", index => {
+    this.$root.$on("scrollTabItems", index => {
       this.scrollToItemAt(index);
     });
   },
@@ -50,7 +50,7 @@ export default {
     this.itemOffsetTops = getItemOffsetTops(this.tabItemClass);
   },
   beforeDestroy() {
-    this.$root.$off("tabScroll");
+    this.$root.$off("scrollTabItems");
   },
   methods: {
     /**

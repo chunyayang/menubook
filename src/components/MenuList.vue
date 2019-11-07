@@ -3,7 +3,7 @@
     <v-tabs
       v-model="tabIndex"
       class="menu-list__tabs"
-      @change="onChangeTab($event)"
+      @change="onTabChange($event)"
     >
       <v-tab
         v-for="category in categories"
@@ -76,8 +76,8 @@ export default {
           this.loading = false;
         });
     },
-    onChangeTab(index) {
-      this.$root.$emit("tabScroll", index);
+    onTabChange(index) {
+      this.$root.$emit("scrollTabItems", index);
     }
   }
 };
