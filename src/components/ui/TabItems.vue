@@ -8,6 +8,16 @@
 </template>
 
 <script>
+/**
+ * TabItems is a custom UI component designed to use as
+ * a pair with a tab bar. Elements inside <slot></slot>
+ * should be a series of content blocks. TabItems helps 
+ * the user-- 
+ * 1. scroll the document to the corresponding content 
+ * block, after clicking any tab of the tab bar.
+ * 2. change the active tab while scrolling through the 
+ * content blocks.
+ */
 export default {
   model: {
     prop: "tabIndex",
@@ -125,7 +135,7 @@ function getItemOffsetTops(className) {
  * without overlaps or gaps.
  *
  * @param {Array} offsetTops - an array of each tab item's offsetTop
- * @param {Number} offset - a positive/negative number to artificially adjust 
+ * @param {Number} offset - a positive/negative number to artificially adjust
  * the position of window.scrollY.
  */
 function getScrollItemIndex(offsetTops, offset = 0) {
