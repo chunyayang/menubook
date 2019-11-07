@@ -11,20 +11,45 @@
       >{{ category.name }}</v-tab>
     </v-tabs>
 
-    <MenuListCategories
+    <TabItems
       v-model="tabIndex"
-      :categories="categories"
-    />
+      tabItemClass="menu-list__category"
+    >
+      <v-card
+        v-for="category in categories"
+        :key="category.name"
+        class="menu-list__category mb-6 py-4"
+        outlined
+      >
+        <h2 class="headline pa-4">{{ category.name }}</h2>
+        <ul class="pa-0">
+          <li
+            v-for="item in category.items"
+            :key="item.itemId"
+            class="px-4"
+          >
+            <v-divider />
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title>{{ item.name }}</v-list-item-title>
+                <v-list-item-subtitle>{{ item.description }}</v-list-item-subtitle>
+                <v-list-item-subtitle class="subtitle-1 mt-2">${{ item.price }}</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </li>
+        </ul>
+      </v-card>
+    </TabItems>
   </div>
 </template>
 
 <script>
-import MenuListCategories from "@/components/MenuListCategories";
+import TabItems from "@/components/ui/TabItems";
 import { getStoreMenu } from "@/api.js";
 
 export default {
   components: {
-    MenuListCategories
+    TabItems
   },
   props: ["id"],
   data() {
@@ -52,13 +77,16 @@ export default {
         });
     },
     onChangeTab(index) {
-      this.$root.$emit("tabClick", index);
+      this.$root.$emit("tabScroll", index);
     }
   }
 };
 </script>
 
 <style lang="scss">
+.menu-list ul {
+  list-style-type: none;
+}
 .menu-list__tabs {
   position: sticky;
   position: -webkit-sticky;
