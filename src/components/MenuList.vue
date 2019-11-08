@@ -3,6 +3,7 @@
     <v-tabs
       v-model="tabIndex"
       class="menu-list__tabs"
+      color="amber darken-3"
       @change="onTabChange($event)"
     >
       <v-tab
@@ -18,26 +19,21 @@
       <v-card
         v-for="category in categories"
         :key="category.name"
-        class="menu-list__category mb-6 py-4"
+        class="menu-list__category mt-6 mx-1 py-4"
         outlined
       >
-        <h2 class="headline pa-4">{{ category.name }}</h2>
-        <ul class="pa-0">
-          <li
-            v-for="item in category.items"
-            :key="item.itemId"
-            class="px-4"
-          >
-            <v-divider />
-            <v-list-item>
+        <v-card-title>{{ category.name }}</v-card-title>
+        <v-list three-line>
+          <template v-for="item in category.items">
+            <v-list-item :key="item.itemId">
               <v-list-item-content>
                 <v-list-item-title>{{ item.name }}</v-list-item-title>
                 <v-list-item-subtitle>{{ item.description }}</v-list-item-subtitle>
-                <v-list-item-subtitle class="subtitle-1 mt-2">${{ item.price }}</v-list-item-subtitle>
+                <v-list-item-subtitle class="mt-2">${{ item.price }}</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
-          </li>
-        </ul>
+          </template>
+        </v-list>
       </v-card>
     </TabItems>
   </div>

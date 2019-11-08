@@ -1,6 +1,6 @@
 <template>
   <v-container
-    class="tab-items"
+    class="tab-items pa-0"
     v-scroll="onScroll"
   >
     <slot></slot>

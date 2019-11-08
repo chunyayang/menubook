@@ -1,6 +1,7 @@
 <template>
   <div>
     <StoreInfoDetails :id="this.id" />
+    <v-divider />
     <MenuList :id="this.id" />
   </div>
 </template>
