@@ -25,23 +25,18 @@
     </v-navigation-drawer>
 
     <v-app-bar
+      color="amber darken-3"
+      dark
       app
-      dense
-      flat
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-spacer></v-spacer>
-
-      <v-toolbar-title>
-        <v-btn
-          depressed
-          text
-          href="/"
-          aria-label="Ordergo"
-          class="headline text-none font-weight-medium logo"
-        ></v-btn>
-      </v-toolbar-title>
+      <v-btn
+        href="/"
+        aria-label="Ordergo"
+        text
+        class="title text-none"
+      >Ordergo</v-btn>
 
       <v-spacer></v-spacer>
 
@@ -61,7 +56,6 @@
     <v-footer
       color="blue-grey darken-3"
       dark
-      app
     >
       <span>&copy; 2019</span>
     </v-footer>
