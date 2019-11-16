@@ -19,7 +19,7 @@
       <v-card
         v-for="category in categories"
         :key="category.name"
-        class="menu-list__category mt-6 mx-1 py-4"
+        class="menu-list__category my-6 mx-2 py-4"
         outlined
       >
         <v-card-title>{{ category.name }}</v-card-title>
@@ -83,7 +83,7 @@ export default {
 .menu-list__tabs {
   position: sticky;
   position: -webkit-sticky;
-  top: 40px;
+  top: 56px;
   z-index: 1;
 }
 </style>

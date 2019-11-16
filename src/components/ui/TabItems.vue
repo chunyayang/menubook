@@ -30,7 +30,7 @@ export default {
     },
     tabBarHeight: {
       type: Number,
-      default: 40
+      default: 56
     },
     tabItemClass: {
       type: String,
