@@ -23,7 +23,7 @@
             aspect-ratio="2"
           ></v-img>
 
-          <v-card-title class="subtitle-1 pb-0">{{ store.name }}</v-card-title>
+          <v-card-title class="subtitle-1">{{ store.name }}</v-card-title>
 
           <v-card-text>
             <div>
