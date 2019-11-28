@@ -2,7 +2,7 @@
   <v-card
     v-if="!loading"
     flat
-    class="store-info-details"
+    class="store-info"
   >
     <v-img
       :src="require('../assets/' + store.imageUrl)"
@@ -24,7 +24,7 @@
         <span
           v-for="tag in store.tags"
           :key="tag"
-          class="tag"
+          class="store-tag"
         >{{ tag }}</span>
       </div>
 
@@ -77,10 +77,10 @@ export default {
 </script>
 
 <style lang="scss">
-.store-info-details .tag::after {
+.store-info .store-tag::after {
   content: "・";
 }
-.store-info-details .tag:last-child::after {
+.store-info .store-tag:last-child::after {
   content: "";
 }
 </style>>

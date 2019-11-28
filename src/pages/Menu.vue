@@ -1,18 +1,18 @@
 <template>
   <div>
-    <StoreInfoDetails :id="this.id" />
+    <StoreInfo :id="this.id" />
     <v-divider />
     <MenuList :id="this.id" />
   </div>
 </template>
 
 <script>
-import StoreInfoDetails from "@/components/StoreInfoDetails.vue";
-import MenuList from "@/components/MenuList.vue";
+import StoreInfo from "@/components/StoreInfo";
+import MenuList from "@/components/MenuList";
 
 export default {
   components: {
-    StoreInfoDetails,
+    StoreInfo,
     MenuList
   },
   props: ["id"],
