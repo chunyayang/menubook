@@ -1,15 +1,15 @@
 <template>
   <v-container>
-    <StoreInfo />
+    <SearchResults />
   </v-container>
 </template>
 
 <script>
-import StoreInfo from "@/components/StoreInfo.vue";
+import SearchResults from "@/components/SearchResults";
 
 export default {
   components: {
-    StoreInfo
+    SearchResults
   },
   data() {
     return {

@@ -1,5 +1,6 @@
 <template>
   <div
+    class="search-results"
     role="grid"
     aria-label="search_results"
   >
@@ -16,7 +17,6 @@
         <v-card
           :to="{name: 'menu', params: {id: store.id}}"
           flat
-          class="store-info"
         >
           <v-img
             :src="require('../assets/' + store.imageUrl)"
@@ -38,7 +38,7 @@
               <span
                 v-for="tag in store.tags"
                 :key="tag"
-                class="tag"
+                class="store-tag"
               >{{ tag }}</span>
             </div>
 
@@ -85,10 +85,10 @@ export default {
 </script>
 
 <style lang="scss">
-.store-info .tag::after {
+.search-results .store-tag::after {
   content: "・";
 }
-.store-info .tag:last-child::after {
+.search-results .store-tag:last-child::after {
   content: "";
 }
 </style>
