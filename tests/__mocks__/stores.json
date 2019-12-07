@@ -1,0 +1,172 @@
+{
+  "stores": [
+    {
+      "id": 1,
+      "name": "EST",
+      "isActive": false,
+      "imageUrl": "1/main.jpg",
+      "tags": [
+        "esse quis",
+        "elit nisi",
+        "magna irure",
+        "sunt cillum"
+      ],
+      "rating": "4.7",
+      "ratingCount": 25,
+      "priceLevel": 1,
+      "preparationTime": "19 mins",
+      "distance": "780 meters away",
+      "phone": "(912) 442-2650",
+      "address": "948 Krier Place, Drytown, West Virginia, 3918",
+      "openingHours": "8:00 - 22:00",
+      "about": "Anim adipisicing reprehenderit irure dolor. Esse nisi incididunt anim ipsum qui labore minim veniam non nulla tempor proident. Culpa ut cillum ex duis aliquip officia do excepteur et labore ipsum ea eiusmod. Deserunt elit amet ullamco cillum est veniam consectetur. Aliqua Lorem ea ipsum et adipisicing do ullamco irure nulla Lorem do. Velit excepteur laborum fugiat velit consequat irure commodo commodo ullamco id ut. Do aute enim Lorem elit aute ex nulla anim commodo ut occaecat proident."
+    },
+    {
+      "id": 2,
+      "name": "EXERCITATION",
+      "isActive": true,
+      "imageUrl": "2/main.jpg",
+      "tags": [
+        "deserunt",
+        "occaecat",
+        "consequat",
+        "proident",
+        "excepteur"
+      ],
+      "rating": "1.2",
+      "ratingCount": 591,
+      "priceLevel": 3,
+      "preparationTime": "52 mins",
+      "distance": "990 meters away",
+      "phone": "(896) 438-2647",
+      "address": "415 Clarendon Road, Catherine, Tennessee, 4052",
+      "openingHours": "12:00 - 21:00",
+      "about": "Deserunt proident incididunt quis et. Sunt sint culpa excepteur voluptate qui incididunt laborum aliqua sit aliquip deserunt ut. Lorem esse cillum proident qui reprehenderit duis mollit incididunt occaecat est ex duis velit. Reprehenderit ipsum dolore deserunt aliqua dolor. Non anim ad cupidatat irure mollit et nostrud anim incididunt."
+    },
+    {
+      "id": 3,
+      "name": "MINIM OCCAECAT OFFICIA",
+      "isActive": true,
+      "imageUrl": "3/main.jpg",
+      "tags": [
+        "nulla",
+        "est",
+        "quis",
+        "sint",
+        "deserunt",
+        "in"
+      ],
+      "rating": "5",
+      "ratingCount": 251,
+      "priceLevel": 1,
+      "preparationTime": "37 mins",
+      "distance": "210 meters away",
+      "phone": "(805) 574-2205",
+      "address": "218 Terrace Place, Crumpler, California, 6613",
+      "openingHours": "7:00 - 20:00",
+      "about": "Nisi in officia consectetur Lorem dolore. Amet veniam ex Lorem nisi ut voluptate sint cupidatat ea exercitation ad fugiat. Excepteur enim pariatur elit ullamco occaecat officia consequat velit consequat non tempor. Magna deserunt laborum nisi aute ullamco dolore. Elit et veniam ad anim eiusmod proident sunt. Occaecat in esse elit esse."
+    },
+    {
+      "id": 4,
+      "name": "AD QUIS UT",
+      "isActive": false,
+      "imageUrl": "4/main.jpg",
+      "tags": [
+        "ea",
+        "eiusmod",
+        "commodo"
+      ],
+      "rating": "3.9",
+      "ratingCount": 839,
+      "priceLevel": 3,
+      "preparationTime": "10 mins",
+      "distance": "120 meters away",
+      "phone": "(856) 428-2664",
+      "address": "341 Pitkin Avenue, Sunnyside, Minnesota, 8953",
+      "openingHours": "7:00 - 20:00",
+      "about": "Ut incididunt in commodo veniam tempor ex. Ut voluptate duis adipisicing esse sint cillum ad cupidatat officia irure aliqua enim. Eu adipisicing enim commodo magna consequat veniam nostrud veniam pariatur eiusmod adipisicing."
+    },
+    {
+      "id": 5,
+      "name": "DOLORE",
+      "isActive": false,
+      "imageUrl": "5/main.jpg",
+      "tags": [
+        "incididunt laborum",
+        "nostrud enim",
+        "ut ad",
+        "ut consequat",
+        "cupidatat proident",
+        "magna sunt"
+      ],
+      "rating": "0.9",
+      "ratingCount": 744,
+      "priceLevel": 1,
+      "preparationTime": "8 mins",
+      "distance": "320 meters away",
+      "phone": "(950) 599-2845",
+      "address": "493 Lawton Street, Freetown, New Mexico, 5724",
+      "openingHours": "10:00 - 20:00",
+      "about": "Laborum quis ullamco pariatur nostrud sunt veniam in eu tempor do. Labore dolor adipisicing commodo sit. In reprehenderit ea nisi reprehenderit elit eu tempor enim consectetur non. Cupidatat do eiusmod commodo nostrud. Qui consectetur eu duis ex eiusmod pariatur minim aliquip aliquip laboris."
+    },
+    {
+      "id": 6,
+      "name": "DUIS QUI ESSE",
+      "isActive": false,
+      "imageUrl": "6/main.jpg",
+      "tags": [
+        "officia nulla",
+        "consectetur irure"
+      ],
+      "rating": "4.9",
+      "ratingCount": 63,
+      "priceLevel": 3,
+      "preparationTime": "58 mins",
+      "distance": "670 meters away",
+      "phone": "(988) 500-3319",
+      "address": "795 Monument Walk, Vowinckel, Georgia, 1460",
+      "openingHours": "12:00 - 21:00",
+      "about": "Laboris anim cillum labore sit sint consectetur laborum enim laborum do nisi quis. Lorem labore eu cillum duis nulla in. Ea ullamco adipisicing nostrud qui sit laborum consequat dolor non magna dolor sit qui ut. Ea qui ullamco minim ut excepteur officia cupidatat eu reprehenderit qui."
+    },
+    {
+      "id": 7,
+      "name": "AD MINIM",
+      "isActive": false,
+      "imageUrl": "7/main.jpg",
+      "tags": [
+        "veniam",
+        "proident",
+        "nisi",
+        "reprehenderit"
+      ],
+      "rating": "3.8",
+      "ratingCount": 316,
+      "priceLevel": 4,
+      "preparationTime": "40 mins",
+      "distance": "750 meters away",
+      "phone": "(884) 477-2801",
+      "address": "720 Coventry Road, Bloomington, Rhode Island, 9313",
+      "openingHours": "7:00 - 21:00",
+      "about": "Aute irure sint reprehenderit aliqua dolor veniam magna sunt incididunt elit occaecat. Tempor aliquip quis mollit aliqua. Veniam ut esse ipsum exercitation. Irure esse cupidatat voluptate elit qui cillum voluptate incididunt eu mollit amet minim eiusmod. Adipisicing culpa qui Lorem nulla ut occaecat fugiat sit esse exercitation irure nostrud nostrud. Sint sint nisi officia laborum velit excepteur nulla laborum sit qui velit id cillum."
+    },
+    {
+      "id": 8,
+      "name": "ELIT",
+      "isActive": true,
+      "imageUrl": "8/main.jpg",
+      "tags": [
+        "officia ea",
+        "laboris sit"
+      ],
+      "rating": "2.8",
+      "ratingCount": 370,
+      "priceLevel": 2,
+      "preparationTime": "22 mins",
+      "distance": "520 meters away",
+      "phone": "(937) 552-2340",
+      "address": "368 Albemarle Road, Caspar, Oklahoma, 3051",
+      "openingHours": "7:00 - 23:00",
+      "about": "Ut laborum anim enim commodo consectetur. Voluptate occaecat aute incididunt fugiat amet quis laboris eiusmod sint. Do voluptate fugiat nostrud veniam aliquip nulla voluptate ullamco aliqua non exercitation enim."
+    }
+  ]
+}
