@@ -63,7 +63,6 @@ export default {
   mixins: [storeMixin],
   data() {
     return {
-      loading: true,
       stores: [],
       svgStar: mdiStar
     };
@@ -76,9 +75,6 @@ export default {
       })
       .catch(error => {
         console.log(error);
-      })
-      .finally(() => {
-        this.loading = false;
       });
   }
 };
