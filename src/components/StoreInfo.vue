@@ -1,6 +1,5 @@
 <template>
   <v-card
-    v-if="!loading"
     flat
     class="store-info"
   >
@@ -50,28 +49,18 @@ export default {
   props: ["id"],
   data() {
     return {
-      loading: true,
       store: null,
-      errored: false,
       svgStar: mdiStar
     };
   },
   created() {
-    this.fetchData();
-  },
-  methods: {
-    fetchData() {
-      getStoreDetails(this.id)
-        .then(response => {
-          this.store = response.data;
-          this.loading = false;
-        })
-        .catch(error => {
-          console.log(error);
-          this.errored = true;
-          this.loading = false;
-        });
-    }
+    getStoreDetails(this.id)
+      .then(response => {
+        this.store = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 };
 </script>
