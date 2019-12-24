@@ -45,7 +45,7 @@
             <div>
               <span>{{ store.distance }}</span>
               <span>・</span>
-              <span>{{ formatPriceLevel(store.priceLevel) }}</span>
+              <span>{{ store.priceLevel | formatPriceLevel }}</span>
             </div>
           </v-card-text>
         </v-card>
@@ -56,11 +56,11 @@
 
 <script>
 import { getStores } from "@/api";
+import storeFilters from "@/filters/storeFilters.js";
 import { mdiStar } from "@mdi/js";
-import storeMixin from "@/mixins/storeMixin";
 
 export default {
-  mixins: [storeMixin],
+  filters: storeFilters,
   data() {
     return {
       stores: [],

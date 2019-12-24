@@ -30,7 +30,7 @@
       <div>
         <span>{{ store.distance }}</span>
         <span>&nbsp;·&nbsp;</span>
-        <span>{{ formatPriceLevel(store.priceLevel) }}</span>
+        <span>{{ store.priceLevel | formatPriceLevel }}</span>
       </div>
       <div>{{ store.phone }}</div>
       <div>{{ store.address }}</div>
@@ -41,11 +41,11 @@
 
 <script>
 import { getStoreDetails } from "@/api.js";
-import storeMixin from "@/mixins/storeMixin.js";
+import storeFilters from "@/filters/storeFilters.js";
 import { mdiStar } from "@mdi/js";
 
 export default {
-  mixins: [storeMixin],
+  filters: storeFilters,
   props: ["id"],
   data() {
     return {
