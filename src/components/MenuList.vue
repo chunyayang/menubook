@@ -81,4 +81,9 @@ export default {
   top: 56px;
   z-index: 1;
 }
+@media (hover: none) {
+  .menu-list__tabs .v-tab:hover::before {
+    opacity: 0 !important;
+  }
+}
 </style>
