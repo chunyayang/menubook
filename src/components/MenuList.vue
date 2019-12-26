@@ -51,24 +51,19 @@ export default {
   data() {
     return {
       tabIndex: 0,
-      categories: null,
-      errored: false
+      categories: []
     };
   },
   created() {
-    this.fetchData();
+    getStoreMenu(this.id)
+      .then(response => {
+        this.categories = response.data.categories;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   },
   methods: {
-    fetchData() {
-      getStoreMenu(this.id)
-        .then(response => {
-          this.categories = response.data.categories;
-        })
-        .catch(error => {
-          console.log(error);
-          this.errored = true;
-        });
-    },
     onTabChange(index) {
       this.$root.$emit("scrollTabItems", index);
     }
