@@ -10,7 +10,7 @@ export default {
       let data = null;
 
       if(resource === "stores") {
-        data = id ? jsonStores.stores[id] : jsonStores.stores;
+        data = id ? jsonStores.stores[id - 1] : jsonStores.stores;
       }
       else if(resource === "menus") {
         data = jsonMenus.menus;
