@@ -7,24 +7,24 @@
       @change="onTabChange($event)"
     >
       <v-tab
-        v-for="category in categories"
-        :key="category.name"
-      >{{ category.name }}</v-tab>
+        v-for="menu in menuList"
+        :key="menu.name"
+      >{{ menu.name }}</v-tab>
     </v-tabs>
 
     <TabItems
       v-model="tabIndex"
-      tabItemClass="menu-list__category"
+      tabItemClass="menu-list__menu"
     >
       <v-card
-        v-for="category in categories"
-        :key="category.name"
-        class="menu-list__category my-6 mx-2 py-4"
+        v-for="menu in menuList"
+        :key="menu.name"
+        class="menu-list__menu my-6 mx-2 py-4"
         outlined
       >
-        <v-card-title>{{ category.name }}</v-card-title>
+        <v-card-title>{{ menu.name }}</v-card-title>
         <v-list three-line>
-          <template v-for="item in category.items">
+          <template v-for="item in menu.items">
             <v-list-item :key="item.itemId">
               <v-list-item-content>
                 <v-list-item-title>{{ item.name }}</v-list-item-title>
@@ -41,7 +41,7 @@
 
 <script>
 import TabItems from "@/components/ui/TabItems";
-import { getStoreMenu } from "@/api.js";
+import { getStoreMenuList } from "@/api.js";
 
 export default {
   components: {
@@ -51,13 +51,13 @@ export default {
   data() {
     return {
       tabIndex: 0,
-      categories: []
+      menuList: []
     };
   },
   created() {
-    getStoreMenu(this.id)
+    getStoreMenuList(this.id)
       .then(response => {
-        this.categories = response.data.categories;
+        this.menuList = response.data.categories;
       })
       .catch(error => {
         console.log(error);
