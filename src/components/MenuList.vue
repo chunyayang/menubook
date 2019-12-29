@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     onTabChange(index) {
-      this.$root.$emit("scrollTabItems", index);
+      this.$root.$emit("scrollToTabItem", index);
     }
   }
 };
