@@ -13,7 +13,7 @@ export default {
         data = id ? jsonStores.stores[id - 1] : jsonStores.stores;
       }
       else if(resource === "menus") {
-        data = jsonMenus.menus;
+        data = jsonMenus.menus[id - 1];
       }
 
       return Promise.resolve({ data: data });
