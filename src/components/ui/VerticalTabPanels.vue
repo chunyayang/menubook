@@ -1,6 +1,6 @@
 <template>
   <v-container
-    class="tab-items pa-0"
+    class="vertical-tab-panels pa-0"
     v-scroll="onScroll"
   >
     <slot></slot>
@@ -9,9 +9,9 @@
 
 <script>
 /**
- * TabItems is a custom UI component designed to use as
+ * TabPanels is a custom UI component designed to use as
  * a pair with a tab bar. Elements inside <slot></slot>
- * should be a series of content blocks. TabItems helps 
+ * should be a series of content blocks. TabPanels helps 
  * the user-- 
  * 1. scroll the document to the corresponding content 
  * block, after clicking any tab of the tab bar.
@@ -32,9 +32,9 @@ export default {
       type: Number,
       default: 56
     },
-    tabItemClass: {
+    tabPanelClass: {
       type: String,
-      default: "tab-item"
+      default: "tab-panel"
     },
     vScrollDuration: {
       type: Number,
@@ -48,19 +48,19 @@ export default {
   data() {
     return {
       inTransition: false,
-      itemOffsetTops: []
+      panelOffsetTops: []
     };
   },
   mounted() {
-    this.$root.$on("scrollToTabItem", index => {
-      this.scrollToItemAt(index);
+    this.$root.$on("scrollToTabPanel", index => {
+      this.scrollToPanelAt(index);
     });
   },
   updated() {
-    this.itemOffsetTops = getItemOffsetTops(this.tabItemClass);
+    this.panelOffsetTops = getPanelOffsetTops(this.tabPanelClass);
   },
   beforeDestroy() {
-    this.$root.$off("scrollToTabItem");
+    this.$root.$off("scrollToTabPanel");
   },
   methods: {
     /**
@@ -72,24 +72,24 @@ export default {
         return;
       }
 
-      const itemIndex = getScrollItemIndex(
-        this.itemOffsetTops,
+      const panelIndex = getScrollPanelIndex(
+        this.panelOffsetTops,
         this.tabBarHeight
       );
 
-      if (itemIndex !== this.tabIndex) {
+      if (panelIndex !== this.tabIndex) {
         // Update the v-model value shared with the tab bar.
-        this.$emit("change", itemIndex);
+        this.$emit("change", panelIndex);
       }
     },
     /**
-     * Scroll the page to the (index + 1)-th tab item.
+     * Scroll the page to the (index + 1)-th tab panel.
      */
-    scrollToItemAt(index) {
-      if (typeof index != "number" || index >= this.itemOffsetTops.length) {
+    scrollToPanelAt(index) {
+      if (typeof index != "number" || index >= this.panelOffsetTops.length) {
         return;
       }
-      const target = `.${this.tabItemClass}:nth-child(${index + 1})`;
+      const target = `.${this.tabPanelClass}:nth-child(${index + 1})`;
       const options = {
         duration: this.vScrollDuration,
         offset: this.vScrollOffset
@@ -110,35 +110,35 @@ export default {
 };
 
 /**
- * Get each tab item's offsetTop.
- * @param {String} className - the class name shared by all the tab items
+ * Get each tab panel's offsetTop.
+ * @param {String} className - the class name shared by all the tab panels
  * @returns {Array} an array of offsetTop numbers
  */
-function getItemOffsetTops(className) {
+function getPanelOffsetTops(className) {
   if (!className) {
     return [];
   }
-  const items = document.querySelectorAll(`.${className}`);
+  const panels = document.querySelectorAll(`.${className}`);
   let offsetTops = [];
 
-  items.forEach(function(item, i) {
-    offsetTops[i] = item.offsetTop;
+  panels.forEach(function(panel, i) {
+    offsetTops[i] = panel.offsetTop;
   });
 
   return offsetTops;
 }
 
 /**
- * Get the index of the tab item which the user scrolls to.
+ * Get the index of the tab panel which the user scrolls to.
  *
- * NOTE: It assumes the tab items are visually connectd to each other,
+ * NOTE: It assumes the tab panels are visually connectd to each other,
  * without overlaps or gaps.
  *
- * @param {Array} offsetTops - an array of each tab item's offsetTop
+ * @param {Array} offsetTops - an array of each tab panel's offsetTop
  * @param {Number} offset - a positive/negative number to artificially adjust
  * the position of window.scrollY.
  */
-function getScrollItemIndex(offsetTops, offset = 0) {
+function getScrollPanelIndex(offsetTops, offset = 0) {
   let index = 0;
 
   index = offsetTops.findIndex(function(top, i) {
@@ -152,7 +152,7 @@ function getScrollItemIndex(offsetTops, offset = 0) {
   });
 
   // The first tab stays active when the window.scrollY
-  // is above the first scroll item.
+  // is above the first scroll panel.
   return index < 0 ? 0 : index;
 }
 </script>

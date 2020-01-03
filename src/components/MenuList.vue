@@ -12,9 +12,9 @@
       >{{ menu.name }}</v-tab>
     </v-tabs>
 
-    <TabItems
+    <VerticalTabPanels
       v-model="tabIndex"
-      tabItemClass="menu-list__menu"
+      tabPanelClass="menu-list__menu"
     >
       <v-card
         v-for="menu in menuList"
@@ -35,17 +35,17 @@
           </template>
         </v-list>
       </v-card>
-    </TabItems>
+    </VerticalTabPanels>
   </div>
 </template>
 
 <script>
-import TabItems from "@/components/ui/TabItems";
+import VerticalTabPanels from "@/components/ui/VerticalTabPanels";
 import { getStoreMenuList } from "@/api.js";
 
 export default {
   components: {
-    TabItems
+    VerticalTabPanels
   },
   props: ["id"],
   data() {
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     onTabChange(index) {
-      this.$root.$emit("scrollToTabItem", index);
+      this.$root.$emit("scrollToTabPanel", index);
     }
   }
 };

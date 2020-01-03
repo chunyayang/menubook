@@ -24,10 +24,10 @@ describe('SearchResutls.vue', () => {
     expect(wrapper.classes('menu-list')).toBe(true);
   });
 
-  it('renders the same number of tabs and tab items according to the given data.', () => {
+  it('renders the same number of tabs and tab panels according to the given data.', () => {
     const size = wrapper.vm.menuList.length;
     expect(wrapper.findAll('.v-tab')).toHaveLength(size);
-    expect(wrapper.findAll('.tab-items > .menu-list__menu')).toHaveLength(size);
+    expect(wrapper.findAll('.vertical-tab-panels > .menu-list__menu')).toHaveLength(size);
   });
 
   it('renders dishes according to the menu data.', () => {
@@ -38,17 +38,17 @@ describe('SearchResutls.vue', () => {
     expect(menu.findAll('.v-list-item')).toHaveLength(menuData.items.length);
   });
 
-  it('emits a "scrollToTabItem" event after click a tab.', () => {
+  it('emits a "scrollToTabPanel" event after click a tab.', () => {
     wrapper.vm.$root.$emit = jest.fn();
     wrapper.findAll('.v-tab').at(2).trigger('click');
     expect(wrapper.vm.tabIndex).toBe(2);
-    expect(wrapper.vm.$root.$emit).toHaveBeenCalledWith('scrollToTabItem', 2);
+    expect(wrapper.vm.$root.$emit).toHaveBeenCalledWith('scrollToTabPanel', 2);
   });
 
-  it('updates the tab bar\'s v-model when the tab items\' v-model changes.', () => {
+  it('updates the tab bar\'s v-model when the tab panels\' v-model changes.', () => {
     const tabBar = wrapper.find('.v-tabs');
-    const tabItems = wrapper.find('.tab-items');
-    tabItems.vm.$emit('change', 3);
+    const tabPanels = wrapper.find('.vertical-tab-panels');
+    tabPanels.vm.$emit('change', 3);
     expect(tabBar.props('value')).toBe(3);
   });
 });
