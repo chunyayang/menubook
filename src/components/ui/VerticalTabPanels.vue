@@ -1,3 +1,24 @@
+<!--
+ VerticalTabPanels is used for displaying the v-tabs
+ component's correspoding content panels vertically.
+ 
+ When the user clicks a tab, the document will be
+ scrolled to the position of its tab panel.
+ When the user scrolls the tab panels, the active tab
+ of the v-tabs component will change accordingly.
+ 
+Setup:
+ 1. Declare the VerticalTabPanels component as a sibling of
+ the v-tabs component.
+ 2. Set a series of content blocks (e.g. div or v-card)
+ inside <VerticalTabPanels></VerticalTabPanels> as tab panels.
+ The number of panels should be the same as the number of tabs.
+
+Required Parameter:
+ v-model: the v-tabs component and the VerticalTabPanels
+ component share the same integer variable as their v-model
+ value. The variable represents the index of the active tab.
+-->
 <template>
   <v-container
     class="vertical-tab-panels pa-0"
@@ -8,16 +29,6 @@
 </template>
 
 <script>
-/**
- * TabPanels is a custom UI component designed to use as
- * a pair with a tab bar. Elements inside <slot></slot>
- * should be a series of content blocks. TabPanels helps 
- * the user-- 
- * 1. scroll the document to the corresponding content 
- * block, after clicking any tab of the tab bar.
- * 2. change the active tab while scrolling through the 
- * content blocks.
- */
 export default {
   model: {
     prop: "tabIndex",
@@ -78,7 +89,7 @@ export default {
       );
 
       if (panelIndex !== this.tabIndex) {
-        // Update the v-model value shared with the tab bar.
+        // Update the v-model value shared with the v-tabs component.
         this.$emit("change", panelIndex);
       }
     },
@@ -131,12 +142,12 @@ function getPanelOffsetTops(className) {
 /**
  * Get the index of the tab panel which the user scrolls to.
  *
- * NOTE: It assumes the tab panels are visually connectd to each other,
- * without overlaps or gaps.
+ * NOTE: The calculation assumes the tab panels are visually 
+ * connectd to each other, without overlaps or gaps.
  *
  * @param {Array} offsetTops - an array of each tab panel's offsetTop
- * @param {Number} offset - a positive/negative number to artificially adjust
- * the position of window.scrollY.
+ * @param {Number} offset - a positive/negative number to artificially
+ * adjust the position of window.scrollY.
  */
 function getScrollPanelIndex(offsetTops, offset = 0) {
   let index = 0;
