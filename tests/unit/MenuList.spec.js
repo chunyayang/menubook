@@ -18,7 +18,8 @@ describe('SearchResutls.vue', () => {
     },
     mocks: {
       $bus
-    }
+    },
+    stubs: ['VerticalTabPanels']
   });
 
   it('fetches async after being mounted.', done => {
@@ -35,7 +36,7 @@ describe('SearchResutls.vue', () => {
   it('renders the same number of tabs and tab panels according to the given data.', () => {
     const size = wrapper.vm.menuList.length;
     expect(wrapper.findAll('.v-tab')).toHaveLength(size);
-    expect(wrapper.findAll('.vertical-tab-panels > .menu-list__menu')).toHaveLength(size);
+    expect(wrapper.findAll('.menu-list__menu')).toHaveLength(size);
   });
 
   it('renders dishes according to the menu data.', () => {
@@ -50,12 +51,5 @@ describe('SearchResutls.vue', () => {
     wrapper.findAll('.v-tab').at(2).trigger('click');
     expect(wrapper.vm.tabIndex).toBe(2);
     expect($bus.$emit).toHaveBeenCalledWith('scrollToTabPanel', 2);
-  });
-
-  it('updates the tab bar\'s v-model when the tab panels\' v-model changes.', () => {
-    const tabBar = wrapper.find('.v-tabs');
-    const tabPanels = wrapper.find('.vertical-tab-panels');
-    tabPanels.vm.$emit('change', 3);
-    expect(tabBar.props('value')).toBe(3);
   });
 });
