@@ -39,7 +39,7 @@ export default new Router({
   scrollBehavior: (to, from, savedPosition) => {    
     if (savedPosition) {
       return new Promise((resolve) => {
-        vm.$root.$once('scrollAfterUpdate', () => {
+        vm.$bus.$once('scrollAfterUpdate', () => {
           resolve(savedPosition);
         });
       });

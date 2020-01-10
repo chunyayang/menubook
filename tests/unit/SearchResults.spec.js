@@ -3,10 +3,14 @@ import SearchResults from '@/components/SearchResults.vue';
 
 describe('SearchResutls.vue', () => {
   jest.mock('axios');
-  const $emit = jest.fn();
+
+  const $bus = {
+    $emit: jest.fn()
+  };
+
   const wrapper = shallowMount(SearchResults, {
     mocks: {
-      $emit
+      $bus
     }
   });
 
@@ -37,6 +41,6 @@ describe('SearchResutls.vue', () => {
   });
 
   it('emits "scrollAfterUpdate" event, so that the user scroll position can be restored.', () => {
-    expect($emit).toHaveBeenCalledWith("scrollAfterUpdate");
+    expect($bus.$emit).toHaveBeenCalledWith("scrollAfterUpdate");
   });
 });

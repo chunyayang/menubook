@@ -4,12 +4,20 @@ import { mount } from '@vue/test-utils';
 
 describe('SearchResutls.vue', () => {
   const vuetify = new Vuetify();
+  const $bus = {
+    $emit: jest.fn(),
+    $on: jest.fn()
+  };
+
   jest.mock('axios');
 
   let wrapper = mount(MenuList, {
     vuetify,
     propsData: {
       id: 1
+    },
+    mocks: {
+      $bus
     }
   });
 
@@ -39,10 +47,9 @@ describe('SearchResutls.vue', () => {
   });
 
   it('emits a "scrollToTabPanel" event after click a tab.', () => {
-    wrapper.vm.$root.$emit = jest.fn();
     wrapper.findAll('.v-tab').at(2).trigger('click');
     expect(wrapper.vm.tabIndex).toBe(2);
-    expect(wrapper.vm.$root.$emit).toHaveBeenCalledWith('scrollToTabPanel', 2);
+    expect($bus.$emit).toHaveBeenCalledWith('scrollToTabPanel', 2);
   });
 
   it('updates the tab bar\'s v-model when the tab panels\' v-model changes.', () => {

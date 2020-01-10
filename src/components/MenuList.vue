@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     onTabChange(index) {
-      this.$root.$emit("scrollToTabPanel", index);
+      this.$bus.$emit("scrollToTabPanel", index);
     }
   }
 };

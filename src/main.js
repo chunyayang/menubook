@@ -5,6 +5,16 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
+var EventBus = new Vue();
+
+Object.defineProperties(Vue.prototype, {
+  $bus: {
+    get: function () {
+      return EventBus;
+    }
+  }
+});
+
 export default new Vue({
   vuetify,
   router,

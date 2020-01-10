@@ -14,7 +14,7 @@ Setup:
  2. Set a series of content blocks (e.g. div or v-card)
  inside <VerticalTabPanels></VerticalTabPanels> as tab panels.
  The number of panels should be the same as the number of tabs.
- 
+
  3. Use an event bus to emit an event named "scrollToTabPanel"
  with the index of the user clicked tab from the "change" event
  handler of the v-tabs component, for example:
@@ -69,7 +69,7 @@ export default {
     };
   },
   mounted() {
-    this.$root.$on("scrollToTabPanel", index => {
+    this.$bus.$on("scrollToTabPanel", index => {
       this.scrollToPanelAt(index);
     });
   },
@@ -77,7 +77,7 @@ export default {
     this.panelOffsetTops = getPanelOffsetTops(this.tabPanelClass);
   },
   beforeDestroy() {
-    this.$root.$off("scrollToTabPanel");
+    this.$bus.$off("scrollToTabPanel");
   },
   methods: {
     /**
