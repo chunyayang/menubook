@@ -15,6 +15,7 @@
     "core-js": "^2.6.10",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
+    "vuejs-logger": "1.5.3-beta.2",
     "vuetify": "^2.1.13"
   },
   "devDependencies": {
