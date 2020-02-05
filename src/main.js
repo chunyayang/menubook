@@ -1,7 +1,7 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import vuetify from './plugins/vuetify';
-import router from './router'
-import App from './App.vue'
+import router from './router';
+import App from './App.vue';
 
 var EventBus = new Vue();
 
