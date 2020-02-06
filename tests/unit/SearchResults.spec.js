@@ -43,4 +43,9 @@ describe('SearchResutls.vue', () => {
   it('emits "scrollAfterUpdate" event, so that the user scroll position can be restored.', () => {
     expect($bus.$emit).toHaveBeenCalledWith("scrollAfterUpdate");
   });
+
+  it('renders an error message when "errored" data is true.', () => {
+    wrapper.vm.errored = true;
+    expect(wrapper.find('v-alert-stub').exists()).toBe(true);
+  });
 });

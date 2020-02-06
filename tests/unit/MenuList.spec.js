@@ -52,4 +52,9 @@ describe('SearchResutls.vue', () => {
     expect(wrapper.vm.tabIndex).toBe(2);
     expect($bus.$emit).toHaveBeenCalledWith('scrollToTabPanel', 2);
   });
+
+  it('renders an error message when "errored" data is true.', () => {
+    wrapper.vm.errored = true;
+    expect(wrapper.find('.v-alert').exists()).toBe(true);
+  });
 });

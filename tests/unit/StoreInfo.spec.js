@@ -17,7 +17,7 @@ describe('StoreInfo.vue', () => {
   });
 
   it('has "store-info" class.', () => {
-    expect(wrapper.classes('store-info')).toBe(true);
+    expect(wrapper.find('v-card-stub').classes('store-info')).toBe(true);
   });
 
   it('renders store information.', () => {
@@ -27,5 +27,10 @@ describe('StoreInfo.vue', () => {
     expect(wrapper.find('v-card-title-stub').text()).toBe(storeData.name);
     expect(wrapper.findAll('.store-tag')).toHaveLength(storeData.tags.length);
     expect(wrapper.findAll('v-card-text-stub > div')).toHaveLength(5);
+  });
+
+  it('renders an error message when "errored" data is true.', () => {
+    wrapper.vm.errored = true;
+    expect(wrapper.find('v-alert-stub').exists()).toBe(true);
   });
 });

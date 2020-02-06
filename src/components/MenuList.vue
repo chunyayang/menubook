@@ -1,41 +1,50 @@
 <template>
   <div class="menu-list">
-    <v-tabs
-      v-model="tabIndex"
-      class="menu-list__tabs"
-      color="amber darken-3"
-      @change="onTabChange($event)"
-    >
-      <v-tab
-        v-for="menu in menuList"
-        :key="menu.name"
-      >{{ menu.name }}</v-tab>
-    </v-tabs>
-
-    <VerticalTabPanels
-      v-model="tabIndex"
-      tabPanelClass="menu-list__menu"
-    >
-      <v-card
-        v-for="menu in menuList"
-        :key="menu.name"
-        class="menu-list__menu my-6 mx-2 py-4"
+    <section v-if="errored">
+      <v-alert
+        type="error"
         outlined
+      >Sorry, we're not able to retrieve the menu at the moment. Please try back later.</v-alert>
+    </section>
+
+    <section v-else>
+      <v-tabs
+        v-model="tabIndex"
+        class="menu-list__tabs"
+        color="amber darken-3"
+        @change="onTabChange($event)"
       >
-        <v-card-title>{{ menu.name }}</v-card-title>
-        <v-list three-line>
-          <template v-for="item in menu.items">
-            <v-list-item :key="item.itemId">
-              <v-list-item-content>
-                <v-list-item-title>{{ item.name }}</v-list-item-title>
-                <v-list-item-subtitle>{{ item.description }}</v-list-item-subtitle>
-                <v-list-item-subtitle class="mt-2">${{ item.price }}</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </v-list>
-      </v-card>
-    </VerticalTabPanels>
+        <v-tab
+          v-for="menu in menuList"
+          :key="menu.name"
+        >{{ menu.name }}</v-tab>
+      </v-tabs>
+
+      <VerticalTabPanels
+        v-model="tabIndex"
+        tabPanelClass="menu-list__menu"
+      >
+        <v-card
+          v-for="menu in menuList"
+          :key="menu.name"
+          class="menu-list__menu my-6 mx-2 py-4"
+          outlined
+        >
+          <v-card-title>{{ menu.name }}</v-card-title>
+          <v-list three-line>
+            <template v-for="item in menu.items">
+              <v-list-item :key="item.itemId">
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.name }}</v-list-item-title>
+                  <v-list-item-subtitle>{{ item.description }}</v-list-item-subtitle>
+                  <v-list-item-subtitle class="mt-2">${{ item.price }}</v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+          </v-list>
+        </v-card>
+      </VerticalTabPanels>
+    </section>
   </div>
 </template>
 
@@ -51,7 +60,8 @@ export default {
   data() {
     return {
       tabIndex: 0,
-      menuList: []
+      menuList: [],
+      errored: false
     };
   },
   created() {
@@ -59,8 +69,8 @@ export default {
       .then(response => {
         this.menuList = response.data.categories;
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
+        this.errored = true;
       });
   },
   methods: {
