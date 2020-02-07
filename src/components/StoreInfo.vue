@@ -18,33 +18,32 @@
           aspect-ratio="2"
         ></v-img>
 
-        <v-card-title class="subtitle-1 pb-0">{{ store.name }}</v-card-title>
+        <v-card-title class="pb-0">{{ store.name }}</v-card-title>
 
         <v-card-text>
+          <div class="mb-1">
+            <v-rating
+              :value="store.rating"
+              color="amber"
+              dense
+              half-increments
+              readonly
+              size="18"
+              class="d-inline-block"
+            ></v-rating>
+            <span class="ml-2 pr-1 font-weight-medium">{{ store.rating }}</span>
+            <span>({{ store.ratingCount }})</span>
+          </div>
+
           <div>
-            <span class="pr-1">
-              <v-icon
-                color="orange"
-                small
-              >{{ svgStar }}</v-icon>
-            </span>
-            <span class="pr-1 font-weight-medium">{{ store.rating }}</span>
-            <span>({{ store.ratingCount }})&nbsp;</span>
+            <span class="middle-dot">{{ store.priceLevel | formatPriceLevel }}</span>
             <span
               v-for="tag in store.tags"
               :key="tag"
-              class="store-tag"
+              class="middle-dot"
             >{{ tag }}</span>
           </div>
-
-          <div>
-            <span>{{ store.distance }}</span>
-            <span>&nbsp;·&nbsp;</span>
-            <span>{{ store.priceLevel | formatPriceLevel }}</span>
-          </div>
-          <div>{{ store.phone }}</div>
           <div>{{ store.address }}</div>
-          <div>{{ store.openingHours }}</div>
         </v-card-text>
       </v-card>
     </section>
@@ -81,10 +80,10 @@ export default {
 </script>
 
 <style lang="scss">
-.store-info .store-tag::after {
+.store-info .middle-dot::after {
   content: "・";
 }
-.store-info .store-tag:last-child::after {
+.store-info .middle-dot:last-child::after {
   content: "";
 }
 </style>>

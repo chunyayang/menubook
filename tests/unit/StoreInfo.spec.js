@@ -25,8 +25,7 @@ describe('StoreInfo.vue', () => {
 
     expect(wrapper.findAll('v-img-stub')).toHaveLength(1);
     expect(wrapper.find('v-card-title-stub').text()).toBe(storeData.name);
-    expect(wrapper.findAll('.store-tag')).toHaveLength(storeData.tags.length);
-    expect(wrapper.findAll('v-card-text-stub > div')).toHaveLength(5);
+    expect(wrapper.findAll('v-card-text-stub > div')).toHaveLength(3);
   });
 
   it('renders an error message when "errored" data is true.', () => {
