@@ -32,4 +32,17 @@ describe('StoreInfo.vue', () => {
     wrapper.vm.errored = true;
     expect(wrapper.find('v-alert-stub').exists()).toBe(true);
   });
+
+  const wrapper2 = shallowMount(StoreInfo, {
+    propsData: {
+      id: 2
+    }
+  });
+
+  it('ratingNum falls back to the default value when the store.rating is unexpected.', done => {
+    wrapper2.vm.$nextTick(() => {
+      expect(wrapper2.vm.ratingNum).toBe(0);
+      done();
+    });
+  });
 });

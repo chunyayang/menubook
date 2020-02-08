@@ -23,7 +23,7 @@
         <v-card-text>
           <div class="mb-1">
             <v-rating
-              :value="store.rating"
+              :value="ratingNum"
               color="amber"
               background-color="amber"
               dense
@@ -61,6 +61,7 @@ export default {
   data() {
     return {
       store: null,
+      ratingNum: 0,
       loading: true,
       errored: false
     };
@@ -69,6 +70,7 @@ export default {
     getStoreDetails(this.id)
       .then(response => {
         this.store = response.data;
+        this.ratingNum = parseFloat(this.store.rating) || this.ratingNum;
         this.loading = false;
       })
       .catch(() => {
