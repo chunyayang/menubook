@@ -25,6 +25,7 @@
             <v-rating
               :value="store.rating"
               color="amber"
+              background-color="amber"
               dense
               half-increments
               readonly
@@ -53,7 +54,6 @@
 <script>
 import { getStoreDetails } from "@/api.js";
 import storeFilters from "@/filters/storeFilters.js";
-import { mdiStar } from "@mdi/js";
 
 export default {
   filters: storeFilters,
@@ -62,8 +62,7 @@ export default {
     return {
       store: null,
       loading: true,
-      errored: false,
-      svgStar: mdiStar
+      errored: false
     };
   },
   created() {
