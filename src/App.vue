@@ -33,10 +33,10 @@
 
       <v-btn
         href="/"
-        aria-label="Ordergo"
+        aria-label="JustMeals"
         text
         class="title text-none"
-      >Ordergo</v-btn>
+      >JustMeals</v-btn>
 
       <v-spacer></v-spacer>
 
@@ -57,7 +57,7 @@
       color="blue-grey darken-3"
       dark
     >
-      <span>&copy; 2019</span>
+      <span>&copy; 2020</span>
     </v-footer>
   </v-app>
 </template>
