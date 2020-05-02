@@ -25,8 +25,7 @@
     </v-navigation-drawer>
 
     <v-app-bar
-      color="amber darken-3"
-      dark
+      color="white"
       app
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -35,6 +34,7 @@
         href="/"
         aria-label="JustMeals"
         text
+        color="primary"
         class="title text-none"
       >JustMeals</v-btn>
 

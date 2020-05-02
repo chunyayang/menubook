@@ -37,7 +37,7 @@
               <div>
                 <span class="pr-1">
                   <v-icon
-                    color="orange"
+                    color="amber"
                     small
                   >{{ svgStar }}</v-icon>
                 </span>

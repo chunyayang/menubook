@@ -11,7 +11,7 @@
       <v-tabs
         v-model="tabIndex"
         class="menu-list__tabs"
-        color="amber darken-3"
+        color="primary"
         @change="onTabChange($event)"
       >
         <v-tab
