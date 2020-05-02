@@ -35,7 +35,7 @@
         aria-label="JustMeals"
         text
         color="primary"
-        class="title text-none"
+        class="title font-weight-regular text-none"
       >JustMeals</v-btn>
     </v-app-bar>
 
