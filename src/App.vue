@@ -37,16 +37,6 @@
         color="primary"
         class="title text-none"
       >JustMeals</v-btn>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        value="cart"
-        icon
-        text
-      >
-        <v-icon>{{ svgBasket }}</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-content>
@@ -78,8 +68,4 @@ export default {
 </script>
 
 <style lang="scss">
-.logo {
-  background-image: url("./assets/logo.png");
-  width: 131px;
-}
 </style>
