@@ -1,11 +1,14 @@
 <!--
- VerticalTabPanels is used for displaying the v-tabs
- component's correspoding content panels vertically.
+ VerticalTabPanels is used to vertically display 
+ the v-tabs component's content panels.
  
- When the user clicks a tab, the document will be
- scrolled to the position of its tab panel.
- When the user scrolls the tab panels, the active tab
- of the v-tabs component will change accordingly.
+ Jump to a tab panel:
+ When the user clicks a tab, VerticalTabPanels will scroll 
+ the page to its corresponding panel.
+
+ Switch tabs on scroll:
+ When the user scrolls through the tab panels, the active tab
+ of the v-tabs component will be changed accordingly.
  
 Setup:
  1. Declare the VerticalTabPanels component as a sibling of
@@ -15,9 +18,9 @@ Setup:
  inside <VerticalTabPanels></VerticalTabPanels> as tab panels.
  The number of panels should be the same as the number of tabs.
 
- 3. Use an event bus to emit an event named "scrollToTabPanel"
- with the index of the user clicked tab from the "change" event
- handler of the v-tabs component, for example:
+ 3. Inside the v-tabs component's "change" event handler, 
+ emit an event named "scrollToTabPanel" (here we use an event bus), 
+ with a tab index value, for example:
    this.$bus.$emit("scrollToTabPanel", index);
 
 Required Parameter:
