@@ -24,9 +24,9 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
+    <v-toolbar
       color="white"
-      app
+      flat
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -37,7 +37,7 @@
         color="primary"
         class="title font-weight-regular text-none"
       >JustMeals</v-btn>
-    </v-app-bar>
+    </v-toolbar>
 
     <v-content>
       <router-view />

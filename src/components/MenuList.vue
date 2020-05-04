@@ -88,7 +88,7 @@ export default {
 .menu-list__tabs {
   position: sticky;
   position: -webkit-sticky;
-  top: 56px;
+  top: -1px; //in case there is a responsive content above whose height isn't an integer.
   z-index: 1;
 }
 @media (hover: none) {

@@ -50,7 +50,7 @@ export default {
     },
     tabBarOffsetTop: {
       type: Number,
-      default: 56
+      default: 0
     },
     tabPanelClass: {
       type: String,
