@@ -11,6 +11,7 @@
       <v-card
         v-if="!loading"
         flat
+        tile
         class="store-info"
       >
         <v-img
