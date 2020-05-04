@@ -48,7 +48,7 @@ export default {
       type: Number,
       default: 0
     },
-    tabBarHeight: {
+    tabBarOffsetTop: {
       type: Number,
       default: 56
     },
@@ -94,7 +94,7 @@ export default {
 
       const panelIndex = getScrollPanelIndex(
         this.panelOffsetTops,
-        this.tabBarHeight
+        this.tabBarOffsetTop
       );
 
       if (panelIndex !== this.tabIndex) {
