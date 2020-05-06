@@ -1,4 +1,4 @@
-# ordergo
+# justmeals 
 
 ## Project setup
 ```
