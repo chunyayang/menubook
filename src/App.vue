@@ -27,6 +27,7 @@
     <v-toolbar
       color="white"
       flat
+      class="flex-grow-0"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
