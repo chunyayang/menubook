@@ -24,10 +24,11 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar
-      color="white"
+    <v-app-bar
+      app
       flat
-      class="flex-grow-0"
+      absolute
+      color="white"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -38,15 +39,17 @@
         color="primary"
         class="title font-weight-regular text-none"
       >JustMeals</v-btn>
-    </v-toolbar>
+    </v-app-bar>
 
     <v-content>
       <router-view />
     </v-content>
 
     <v-footer
-      color="blue-grey darken-3"
+      app
       dark
+      absolute
+      color="blue-grey darken-3"
     >
       <span>&copy; 2020</span>
     </v-footer>
