@@ -48,7 +48,7 @@ export default {
       type: Number,
       default: 0
     },
-    tabBarOffsetTop: {
+    tabBarHeight: {
       type: Number,
       default: 0
     },
@@ -92,9 +92,9 @@ export default {
         return;
       }
 
-      const panelIndex = getScrollPanelIndex(
+      const panelIndex = getCurrentPanelIndex(
         this.panelOffsetTops,
-        this.tabBarOffsetTop
+        this.tabBarHeight
       );
 
       if (panelIndex !== this.tabIndex) {
@@ -149,7 +149,7 @@ function getPanelOffsetTops(className) {
 }
 
 /**
- * Get the index of the tab panel which the user scrolls to.
+ * Get the index of the tab panel inside the viewport.
  *
  * NOTE: The calculation assumes the tab panels are visually 
  * connectd to each other, without overlaps or gaps.
@@ -158,17 +158,17 @@ function getPanelOffsetTops(className) {
  * @param {Number} offset - a positive/negative number to artificially
  * adjust the position of window.scrollY.
  */
-function getScrollPanelIndex(offsetTops, offset = 0) {
+function getCurrentPanelIndex(offsetTops, offset = 0) {
   let index = 0;
 
-  index = offsetTops.findIndex(function(top, i) {
+  index = offsetTops.findIndex(function(offsetTop, i) {
     let scrollY = window.scrollY + offset;
 
     if (i === offsetTops.length - 1) {
-      return scrollY >= top;
+      return scrollY >= offsetTop;
     }
 
-    return scrollY >= top && scrollY < offsetTops[i + 1];
+    return scrollY >= offsetTop && scrollY < offsetTops[i + 1];
   });
 
   // The first tab stays active when the window.scrollY
