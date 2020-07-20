@@ -24,24 +24,22 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      flat
-      absolute
-      color="white"
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-btn
-        href="/"
-        aria-label="JustMeals"
-        text
-        color="primary"
-        class="title font-weight-regular text-none"
-      >JustMeals</v-btn>
-    </v-app-bar>
-
     <v-main>
+      <v-app-bar
+        flat
+        color="white"
+      >
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+        <v-btn
+          href="/"
+          aria-label="JustMeals"
+          text
+          color="primary"
+          class="title font-weight-regular text-none"
+        >JustMeals</v-btn>
+      </v-app-bar>
+
       <router-view />
     </v-main>
 
