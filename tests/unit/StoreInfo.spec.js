@@ -28,20 +28,28 @@ describe('StoreInfo.vue', () => {
     expect(wrapper.findAll('v-card-text-stub > div')).toHaveLength(3);
   });
 
-  it('renders an error message when "errored" data is true.', () => {
-    wrapper.vm.errored = true;
-    expect(wrapper.find('v-alert-stub').exists()).toBe(true);
-  });
-
   const wrapper2 = shallowMount(StoreInfo, {
     propsData: {
       id: 2
     }
   });
 
-  it('ratingNum falls back to the default value when the store.rating is unexpected.', done => {
+  it('ratingNum falls back to the default value when store.rating is null.', done => {
     wrapper2.vm.$nextTick(() => {
       expect(wrapper2.vm.ratingNum).toBe(0);
+      done();
+    });
+  });
+
+  const wrapper3 = shallowMount(StoreInfo, {
+    propsData: {
+      id: -1
+    }
+  });
+
+  it('renders an error message when api call fails.', done => {
+    wrapper3.vm.$nextTick(() => {
+      expect(wrapper3.find('v-alert-stub').exists()).toBe(true);
       done();
     });
   });

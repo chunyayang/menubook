@@ -9,13 +9,28 @@ export default {
       const id = found.length > 1 ? found[1] : null;
       let data = null;
 
-      if(resource === "stores") {
-        data = id ? jsonStores.stores[id - 1] : jsonStores.stores;
+      switch (resource) {
+        case "stores":
+          if (id === null) {
+            data = jsonStores.stores;
+          }
+          else if (id <= jsonStores.stores.length) {
+            data = jsonStores.stores[id - 1];
+          }
+          break;
+        case "menus":
+          if (id && id <= jsonMenus.menus.length) {
+            data = jsonMenus.menus[id - 1];
+          }
+          break;
+        default:
+          data = null;
       }
-      else if(resource === "menus") {
-        data = jsonMenus.menus[id - 1];
+      
+      if (!data) {
+        return Promise.reject(new Error("Not Found"));
       }
-
       return Promise.resolve({ data: data });
-  }})
+    }
+  })
 }

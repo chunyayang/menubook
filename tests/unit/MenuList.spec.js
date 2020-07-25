@@ -11,7 +11,7 @@ describe('SearchResutls.vue', () => {
 
   jest.mock('axios');
 
-  let wrapper = mount(MenuList, {
+  const wrapper = mount(MenuList, {
     vuetify,
     propsData: {
       id: 1
@@ -53,8 +53,21 @@ describe('SearchResutls.vue', () => {
     expect($bus.$emit).toHaveBeenCalledWith('scrollToTabPanel', 2);
   });
 
-  it('renders an error message when "errored" data is true.', () => {
-    wrapper.vm.errored = true;
-    expect(wrapper.find('.v-alert').exists()).toBe(true);
+  const wrapper2 = mount(MenuList, {
+    vuetify,
+    propsData: {
+      id: -1
+    },
+    mocks: {
+      $bus
+    },
+    stubs: ['VerticalTabPanels']
+  });
+
+  it('renders an error message when api call fails.', done => {
+    wrapper2.vm.$nextTick(() => {
+      expect(wrapper2.find('.v-alert').exists()).toBe(true);
+      done();
+    });
   });
 });
