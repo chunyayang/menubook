@@ -26,7 +26,10 @@ describe('SearchResutls.vue', () => {
     localVue,
     vuetify,
     propsData: {
-      tabIndex: 2
+      tabIndex: 2,
+      tabBarHeight: 50,
+      tabBarOffsetTop: 10,
+      vScrollDuration: 500
     },
     slots: {
       default: `<div><div
@@ -55,8 +58,8 @@ describe('SearchResutls.vue', () => {
 
     const arg1 = ".tab-panel:nth-child(2)";
     const arg2 = {
-      "duration": wrapper.vm.vScrollDuration,
-      "offset": wrapper.vm.vScrollOffset
+      "duration": 500,
+      "offset": 60
     };
     expect(wrapper.vm.$vuetify.goTo).toHaveBeenCalledWith(arg1, arg2);
   });
