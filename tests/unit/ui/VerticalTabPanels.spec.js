@@ -45,13 +45,13 @@ describe('SearchResutls.vue', () => {
     expect(wrapper.findAll('.vertical-tab-panels .tab-panel')).toHaveLength(5);
   });
 
-  it('"$vuetify.goTo()" will be called when "scrollToTabPanel" event dispatched.', () => {
+  it('"$vuetify.goTo()" will be called when "scrollToTabPanel" event dispatched.', async () => {
     // failed to use the "mocks" mounting option with a localVue.
     wrapper.vm.$vuetify = {
       goTo: jest.fn()
     };
-    wrapper.vm.$forceUpdate();
-    wrapper.vm.$bus.$emit('scrollToTabPanel', 1);
+    await wrapper.vm.$forceUpdate();
+    await wrapper.vm.$bus.$emit('scrollToTabPanel', 1);
 
     const arg1 = ".tab-panel:nth-child(2)";
     const arg2 = {
