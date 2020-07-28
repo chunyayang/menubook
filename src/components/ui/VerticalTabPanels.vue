@@ -48,9 +48,13 @@ export default {
       type: Number,
       default: 0
     },
-    tabBarHeight: {
+    tabBarOffsetTop: {
       type: Number,
       default: 0
+    },
+    tabBarHeight: {
+      type: Number,
+      default: 52
     },
     tabPanelClass: {
       type: String,
@@ -59,10 +63,6 @@ export default {
     vScrollDuration: {
       type: Number,
       default: 400
-    },
-    vScrollOffset: {
-      type: Number,
-      default: 20
     }
   },
   data() {
@@ -92,9 +92,10 @@ export default {
         return;
       }
 
+      const windowScrollYOffset = this.tabBarOffsetTop + this.tabBarHeight;
       const panelIndex = getCurrentPanelIndex(
         this.panelOffsetTops,
-        this.tabBarHeight
+        windowScrollYOffset
       );
 
       if (panelIndex !== this.tabIndex) {
@@ -112,7 +113,7 @@ export default {
       const target = `.${this.tabPanelClass}:nth-child(${index + 1})`;
       const options = {
         duration: this.vScrollDuration,
-        offset: this.vScrollOffset
+        offset: this.tabBarOffsetTop + this.tabBarHeight
       };
 
       // To distinguish the tab-click triggered scroll effect
@@ -155,14 +156,14 @@ function getPanelOffsetTops(className) {
  * connectd to each other, without overlaps or gaps.
  *
  * @param {Array} offsetTops - an array of each tab panel's offsetTop
- * @param {Number} offset - a positive/negative number to artificially
- * adjust the position of window.scrollY.
+ * @param {Number} windowScrollYOffset - a positive/negative number to 
+ * adjust the value of window.scrollY
  */
-function getCurrentPanelIndex(offsetTops, offset = 0) {
+function getCurrentPanelIndex(offsetTops, windowScrollYOffset = 0) {
   let index = 0;
 
   index = offsetTops.findIndex(function(offsetTop, i) {
-    let scrollY = window.scrollY + offset;
+    let scrollY = window.scrollY + windowScrollYOffset;
 
     if (i === offsetTops.length - 1) {
       return scrollY >= offsetTop;
