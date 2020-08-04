@@ -19,9 +19,9 @@ Setup:
  The number of panels should be the same as the number of tabs.
 
  3. Inside the v-tabs component's "change" event handler, 
- emit an event named "scrollToTabPanel" (here we use an event bus), 
+ emit an event named "scrollToPanel" (here we use an event bus), 
  with a tab index value, for example:
-   this.$bus.$emit("scrollToTabPanel", index);
+   this.$bus.$emit("scrollToPanel", index);
 
 Required Parameter:
  v-model: the v-tabs component and the VerticalTabPanels
@@ -48,15 +48,15 @@ export default {
       type: Number,
       default: 0
     },
-    tabBarOffsetTop: {
+    barOffsetTop: {
       type: Number,
       default: 0
     },
-    tabBarHeight: {
+    barHeight: {
       type: Number,
       default: 52
     },
-    tabPanelClass: {
+    panelClass: {
       type: String,
       default: "tab-panel"
     },
@@ -72,15 +72,15 @@ export default {
     };
   },
   mounted() {
-    this.$bus.$on("scrollToTabPanel", index => {
+    this.$bus.$on("scrollToPanel", index => {
       this.scrollToPanelAt(index);
     });
   },
   updated() {
-    this.panelOffsetTops = getPanelOffsetTops(this.tabPanelClass);
+    this.panelOffsetTops = getPanelOffsetTops(this.panelClass);
   },
   beforeDestroy() {
-    this.$bus.$off("scrollToTabPanel");
+    this.$bus.$off("scrollToPanel");
   },
   methods: {
     /**
@@ -92,7 +92,7 @@ export default {
         return;
       }
 
-      const windowScrollYOffset = this.tabBarOffsetTop + this.tabBarHeight;
+      const windowScrollYOffset = this.barOffsetTop + this.barHeight;
       const panelIndex = getCurrentPanelIndex(
         this.panelOffsetTops,
         windowScrollYOffset
@@ -110,10 +110,11 @@ export default {
       if (typeof index != "number" || index >= this.panelOffsetTops.length) {
         return;
       }
-      const target = `.${this.tabPanelClass}:nth-child(${index + 1})`;
+
+      const target = `.${this.panelClass}:nth-child(${index + 1})`;
       const options = {
         duration: this.vScrollDuration,
-        offset: this.tabBarOffsetTop + this.tabBarHeight
+        offset: this.barOffsetTop + this.barHeight
       };
 
       // To distinguish the tab-click triggered scroll effect
@@ -156,14 +157,14 @@ function getPanelOffsetTops(className) {
  * connectd to each other, without overlaps or gaps.
  *
  * @param {Array} offsetTops - an array of each tab panel's offsetTop
- * @param {Number} windowScrollYOffset - a positive/negative number to 
+ * @param {Number} scrollOffset - a positive/negative number to 
  * adjust the value of window.scrollY
  */
-function getCurrentPanelIndex(offsetTops, windowScrollYOffset = 0) {
+function getCurrentPanelIndex(offsetTops, scrollOffset = 0) {
   let index = 0;
 
   index = offsetTops.findIndex(function(offsetTop, i) {
-    let scrollY = window.scrollY + windowScrollYOffset;
+    let scrollY = window.scrollY + scrollOffset;
 
     if (i === offsetTops.length - 1) {
       return scrollY >= offsetTop;

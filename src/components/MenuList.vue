@@ -22,7 +22,7 @@
 
       <VerticalTabPanels
         v-model="tabIndex"
-        tabPanelClass="menu-list__menu"
+        panelClass="menu-list__menu"
       >
         <v-card
           v-for="menu in menuList"
@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     onTabChange(index) {
-      this.$bus.$emit("scrollToTabPanel", index);
+      this.$bus.$emit("scrollToPanel", index);
     }
   }
 };
