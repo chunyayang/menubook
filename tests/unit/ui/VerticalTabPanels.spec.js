@@ -27,9 +27,10 @@ describe('SearchResutls.vue', () => {
     vuetify,
     propsData: {
       tabIndex: 2,
-      tabBarHeight: 50,
-      tabBarOffsetTop: 10,
-      vScrollDuration: 500
+      barHeight: 50,
+      barOffsetTop: 10,
+      vScrollDuration: 500,
+      vScrollOffset: 30
     },
     slots: {
       default: `<div><div
@@ -48,18 +49,18 @@ describe('SearchResutls.vue', () => {
     expect(wrapper.findAll('.vertical-tab-panels .tab-panel')).toHaveLength(5);
   });
 
-  it('"$vuetify.goTo()" will be called when "scrollToTabPanel" event dispatched.', async () => {
+  it('"$vuetify.goTo()" will be called when "scrollToPanel" event dispatched.', async () => {
     // failed to use the "mocks" mounting option with a localVue.
     wrapper.vm.$vuetify = {
       goTo: jest.fn()
     };
     await wrapper.vm.$forceUpdate();
-    await wrapper.vm.$bus.$emit('scrollToTabPanel', 1);
+    await wrapper.vm.$bus.$emit('scrollToPanel', 1);
 
     const arg1 = ".tab-panel:nth-child(2)";
     const arg2 = {
       "duration": 500,
-      "offset": 60
+      "offset": 30
     };
     expect(wrapper.vm.$vuetify.goTo).toHaveBeenCalledWith(arg1, arg2);
   });

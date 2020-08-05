@@ -63,6 +63,12 @@ export default {
     vScrollDuration: {
       type: Number,
       default: 400
+    },
+    // The distance from the top of the scroll target
+    // Please refer to $vuetify goTo function.
+    vScrollOffset: {
+      type: Number,
+      default: 30
     }
   },
   data() {
@@ -70,6 +76,23 @@ export default {
       inTransition: false,
       panelOffsetTops: []
     };
+  },
+  computed: {
+    /**
+     * A virtual horizontal line within the viewport for telling when to
+     * change the active tab while scrolling the panels through.
+     * Here it is the position of the tab bar bottom.
+     */
+    windowScrollOffset() {
+      let offset = this.barOffsetTop + this.barHeight;
+
+      // To prevent the active tab being mistakely altered to the previous one
+      if(offset <= this.vScrollOffset) {
+        offset = this.vScrollOffset + 1;
+      }
+
+      return offset;
+    }
   },
   mounted() {
     this.$bus.$on("scrollToPanel", index => {
@@ -92,10 +115,9 @@ export default {
         return;
       }
 
-      const windowScrollYOffset = this.barOffsetTop + this.barHeight;
       const panelIndex = getCurrentPanelIndex(
         this.panelOffsetTops,
-        windowScrollYOffset
+        this.windowScrollOffset
       );
 
       if (panelIndex !== this.tabIndex) {
@@ -114,7 +136,7 @@ export default {
       const target = `.${this.panelClass}:nth-child(${index + 1})`;
       const options = {
         duration: this.vScrollDuration,
-        offset: this.barOffsetTop + this.barHeight
+        offset: this.vScrollOffset
       };
 
       // To distinguish the tab-click triggered scroll effect
