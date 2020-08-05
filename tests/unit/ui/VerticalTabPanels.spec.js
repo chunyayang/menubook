@@ -29,8 +29,8 @@ describe('SearchResutls.vue', () => {
       tabIndex: 2,
       barHeight: 50,
       barOffsetTop: 10,
-      vScrollDuration: 500,
-      vScrollOffset: 30
+      goToDuration: 500,
+      goToOffset: 30
     },
     slots: {
       default: `<div><div

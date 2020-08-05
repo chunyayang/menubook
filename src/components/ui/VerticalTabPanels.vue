@@ -2,13 +2,13 @@
  VerticalTabPanels is used to vertically display 
  the v-tabs component's content panels.
  
- Jump to a tab panel:
+ Smooth scroll to a tab panel:
  When the user clicks a tab, VerticalTabPanels will scroll 
- the page to its corresponding panel.
+ the page to its corresponding panel with an effect.
 
  Switch tabs on scroll:
  When the user scrolls through the tab panels, the active tab
- of the v-tabs component will be changed accordingly.
+ of the v-tabs component will be accordingly changed.
  
 Setup:
  1. Declare the VerticalTabPanels component as a sibling of
@@ -48,6 +48,7 @@ export default {
       type: Number,
       default: 0
     },
+    // The offsetTop value of the tab bar in the "sticky mode"
     barOffsetTop: {
       type: Number,
       default: 0
@@ -60,13 +61,15 @@ export default {
       type: String,
       default: "tab-panel"
     },
-    vScrollDuration: {
+    // The time it takes for the smooth scrolling effect
+    // Please refer to $vuetify goTo function.
+    goToDuration: {
       type: Number,
       default: 400
     },
     // The distance from the top of the scroll target
     // Please refer to $vuetify goTo function.
-    vScrollOffset: {
+    goToOffset: {
       type: Number,
       default: 30
     }
@@ -87,8 +90,8 @@ export default {
       let offset = this.barOffsetTop + this.barHeight;
 
       // To prevent the active tab being mistakely altered to the previous one
-      if(offset <= this.vScrollOffset) {
-        offset = this.vScrollOffset + 1;
+      if(offset <= this.goToOffset) {
+        offset = this.goToOffset + 1;
       }
 
       return offset;
@@ -135,15 +138,15 @@ export default {
 
       const target = `.${this.panelClass}:nth-child(${index + 1})`;
       const options = {
-        duration: this.vScrollDuration,
-        offset: this.vScrollOffset
+        duration: this.goToDuration,
+        offset: this.goToOffset
       };
 
       // To distinguish the tab-click triggered scroll effect
       // from the regular user scrolling.
       this.inTransition = true;
 
-      // Scroll to the target with a transition effect.
+      // Smooth scroll to the target
       this.$vuetify.goTo(target, options);
 
       setTimeout(() => {
