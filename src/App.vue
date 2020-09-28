@@ -43,29 +43,49 @@
       <router-view />
     </v-main>
 
-    <v-footer
+    <v-bottom-navigation
+      :value="navigation"
       app
-      dark
-      absolute
-      color="blue-grey darken-3"
+      color="primary"
     >
-      <span>&copy; 2020</span>
-    </v-footer>
+      <v-btn href="/">
+        <span>Home</span>
+        <v-icon>{{ svgHome }}</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Order</span>
+        <v-icon>{{ svgClipboardEditOutline }}</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Favorites</span>
+        <v-icon>{{ svgHeart }}</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
 <script>
-import { mdiBasket, mdiHelpBox } from "@mdi/js";
+import {
+  mdiClipboardEditOutline,
+  mdiHelpBox,
+  mdiHeart,
+  mdiHome,
+} from "@mdi/js";
 
 export default {
   name: "App",
   data() {
     return {
       drawer: null,
-      svgBasket: mdiBasket,
-      svgHelpBox: mdiHelpBox
+      navigation: 0,
+      svgClipboardEditOutline: mdiClipboardEditOutline,
+      svgHelpBox: mdiHelpBox,
+      svgHeart: mdiHeart,
+      svgHome: mdiHome,
     };
-  }
+  },
 };
 </script>
 
