@@ -46,6 +46,7 @@
     <v-bottom-navigation
       :value="navigation"
       app
+      grow
       color="primary"
     >
       <v-btn href="/">
