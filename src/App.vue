@@ -55,8 +55,8 @@
       </v-btn>
 
       <v-btn>
-        <span>Order</span>
-        <v-icon>{{ svgClipboardEditOutline }}</v-icon>
+        <span>Orders</span>
+        <v-icon>{{ svgClipboardTextMultipleOutline }}</v-icon>
       </v-btn>
 
       <v-btn>
@@ -69,7 +69,7 @@
 
 <script>
 import {
-  mdiClipboardEditOutline,
+  mdiClipboardTextMultipleOutline,
   mdiHelpBox,
   mdiHeart,
   mdiHome,
@@ -81,7 +81,7 @@ export default {
     return {
       drawer: null,
       navigation: 0,
-      svgClipboardEditOutline: mdiClipboardEditOutline,
+      svgClipboardTextMultipleOutline: mdiClipboardTextMultipleOutline,
       svgHelpBox: mdiHelpBox,
       svgHeart: mdiHeart,
       svgHome: mdiHome,
